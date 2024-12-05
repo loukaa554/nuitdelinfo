@@ -28,7 +28,7 @@ export function Title2({
 } & HTMLAttributes<HTMLHeadingElement>) {
   return (
     <h2
-      className={`scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 ${className}`} // Fusion des classes existantes avec le className passé en paramètre
+      className={`scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0 ${className}`} // Fusion des classes existantes avec le className passé en paramètre
       {...props}
     >
       {children}

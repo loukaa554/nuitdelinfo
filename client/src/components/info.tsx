@@ -1,21 +1,24 @@
-import React from "react";
-import { P, Title1, Title2, Title3 } from "./typographie";
+import { Title1, Title2 } from "./typographie";
 
 interface InfoProps {
   data: {
     title: string;
-    content: string;
   };
 }
 
-function InfoComponents({ data }: InfoProps) {
+function InfoComponents() {
   return (
-    <div className=" flex-col space-y-10 shadow-md rounded-md">
-      <div className="">
-        <Title3 className=" text-left p-5">{data.title}</Title3>
-      </div>
-      <div className="">
-        <P className=" text-left p-5">{data.content}</P>
+    <div className=" h-[100vh] flex justify-center items-center">
+      <div className="flex flex-col">
+        <Title1 className=" text-left">
+          Vous savez combien représentent les océans de la surface de la Terre ?
+        </Title1>
+        <Title1
+          className=" text-right text-[#3A2EE7] right-0  "
+          style={{ fontSize: 148 }}
+        >
+          71%
+        </Title1>
       </div>
     </div>
   );
