@@ -1,6 +1,9 @@
 const axios = require("axios");
 
-// Renvoie un JSON de data
+// -----------------------------------------------------
+
+// -------------------- FETCH DATA ---------------------
+
 const fetchData =
   typeof fetch === "function"
     ? async function fetchData(url) {
@@ -12,10 +15,40 @@ const fetchData =
         return data;
       };
 
-// Renvoie un boolean
-function validateEmail(email) {
-  const re = /\S+@\S+\.\S+/;
-  return re.test(email);
-}
+// -----------------------------------------------------
 
-export { fetchData, validateEmail };
+// ------------------ GENERATION UUID ------------------
+
+const generateUUID = () => {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (char) => {
+    const random = (Math.random() * 16) | 0;
+    const value = char === "x" ? random : (random & 0x3) | 0x8;
+    return value.toString(16);
+  });
+};
+
+// -----------------------------------------------------
+
+// -------------------- FORMAT DATE --------------------
+
+const formatDate = (date, format) => {
+  const d = new Date(date);
+  if (isNaN(d)) throw new Error("Invalid date");
+
+  const day = String(d.getDate()).padStart(2, "0");
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const year = String(d.getFullYear());
+  const shortYear = year.slice(-2);
+
+  return format
+    .replace(/dd/g, day)
+    .replace(/mm/g, month)
+    .replace(/yyyy/g, year)
+    .replace(/yy/g, shortYear);
+};
+
+// -----------------------------------------------------
+
+// ----------------------- EXPORT ----------------------
+
+export { fetchData, generateUUID, formatDate };
