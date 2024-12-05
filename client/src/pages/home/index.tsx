@@ -5,6 +5,12 @@ function Home() {
     {
       title:
         "Vous savez que les océans représentent 71% de la surface de la Terre ?",
+      number: 71,
+    },
+    {
+      title:
+        "Vous savez que les océans représentent 71% de la surface de la Terre ?",
+      number: 71,
     },
   ];
 
@@ -12,7 +18,7 @@ function Home() {
     <div className="Home inner ">
       {infos.map((info, index) => (
         <div className=" mt-10">
-          <InfoComponents key={index} />
+          <InfoComponents data={info} key={index} />
         </div>
       ))}
     </div>

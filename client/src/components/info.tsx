@@ -1,12 +1,14 @@
-import { Title1, Title2 } from "./typographie";
+import { Title1 } from "./typographie";
+import NumberTicker from "@/components/ui/number-ticker";
 
 interface InfoProps {
   data: {
     title: string;
+    number: number;
   };
 }
 
-function InfoComponents() {
+function InfoComponents({ data }: InfoProps) {
   return (
     <div className=" h-[100vh] flex justify-center items-center">
       <div className="flex flex-col">
@@ -17,7 +19,7 @@ function InfoComponents() {
           className=" text-right text-[#3A2EE7] right-0  "
           style={{ fontSize: 148 }}
         >
-          71%
+          <NumberTicker value={data.number} className="text-[#3A2EE7]" />%
         </Title1>
       </div>
     </div>
