@@ -1,6 +1,7 @@
 const express = require("express");
 const { onRequest } = require("firebase-functions/v2/https");
 const admin = require("firebase-admin");
+const analytics = require("firebase-analytics");
 const { validateEmail, fetchData } = require("./function");
 
 const app = express();
