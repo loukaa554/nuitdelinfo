@@ -1,15 +1,10 @@
 const express = require("express");
 const { onRequest } = require("firebase-functions/v2/https");
 const admin = require("firebase-admin");
-<<<<<<< HEAD
 const analytics = require("firebase-analytics");
 const { validateEmail, fetchData } = require("./function");
-=======
-const cors = require("cors");
 
-//const analytics = require("firebase-analytics");
-//const { validateEmail, fetchData } = require("./function");
->>>>>>> adrienmaster
+const cors = require("cors");
 
 const app = express();
 
