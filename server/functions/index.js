@@ -62,12 +62,8 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-
 // Déployez votre application Express en tant que Firebase Cloud Function v2
 exports.apiV2 = onRequest(app);
-
-
-
 
 const { BetaAnalyticsDataClient } = require("@google-analytics/data");
 
@@ -112,10 +108,8 @@ app.get("/chart-data", async (req, res) => {
     res.json({ status: "success", data });
   } catch (error) {
     console.error("Error fetching chart data:", error);
-    res.status(500).json({ status: "error", message: "Failed to fetch chart data." });
+    res
+      .status(500)
+      .json({ status: "error", message: "Failed to fetch chart data." });
   }
 });
-
-
-
-
