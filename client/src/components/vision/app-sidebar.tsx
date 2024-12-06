@@ -1,6 +1,6 @@
-import * as React from "react"
+import * as React from "react";
 
-import { VersionSwitcher } from "@/components/vision/version-switcher"
+import { VersionSwitcher } from "@/components/vision/version-switcher";
 import {
   Sidebar,
   SidebarContent,
@@ -12,7 +12,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
 
 // This is sample data.
 const data = {
@@ -38,22 +38,22 @@ const data = {
       ],
     },
   ],
-}
+};
 
 export function AppSidebar({ ...props }) {
-  const [activeSection, setActiveSection] = React.useState("Administering");
   const [activeItem, setActiveItem] = React.useState("Data");
 
-  const handleItemClick = (section: React.SetStateAction<string>, item: React.SetStateAction<string>) => {
-    setActiveSection(section);
+  const handleItemClick = (
+    section: React.SetStateAction<string>,
+    item: React.SetStateAction<string>
+  ) => {
     setActiveItem(item);
-  
+
     // Si une fonction de callback est passée, l'appeler
     if (props.onSectionChange) {
       props.onSectionChange(section, item);
     }
   };
-  
 
   return (
     <Sidebar {...props}>
@@ -85,5 +85,4 @@ export function AppSidebar({ ...props }) {
       <SidebarRail />
     </Sidebar>
   );
-  
 }

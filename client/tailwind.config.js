@@ -52,21 +52,14 @@ export default {
           4: "hsl(var(--chart-4))",
           5: "hsl(var(--chart-5))",
         },
-<<<<<<< HEAD
-      },
-    },
-  },
-  plugins: [],
-=======
         // Ajout des nouvelles couleurs personnalisées
         sidebar: {
           primary: "#4A5568", // Gris de base
-          hover: "#2D3748",   // Gris plus foncé pour le hover
-          active: "#1A202C",  // Gris encore plus foncé pour le clic
+          hover: "#2D3748", // Gris plus foncé pour le hover
+          active: "#1A202C", // Gris encore plus foncé pour le clic
         },
       },
     },
   },
   plugins: [tailwindcssAnimate],
->>>>>>> adrienmaster
 };
