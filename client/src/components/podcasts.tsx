@@ -3,6 +3,32 @@ import HeroVideoDialog from "./ui/hero-video-dialog";
 import VideoDialog from "./ui/video-dialog";
 
 function Podcasts() {
+  const dataFirst = {
+    title: "Épisode 1 des folies de la nuit de l'info",
+    description:
+      "Dans cette épisode, nous allons parler de notre nuit de l'info",
+    videoSrc: "https://www.youtube.com/embed/V-3Ywwa0Pgk",
+    thumbnailSrc:
+      "https://i.ytimg.com/vi/V-3Ywwa0Pgk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAvsI6V_SXVoE-RWKiqEOXnYHMWOA",
+  };
+  const data = [
+    {
+      title: "Épisode 1 des folies de la nuit de l'info",
+      description:
+        "Dans cette épisode, nous allons parler de notre nuit de l'info",
+      videoSrc: "https://www.youtube.com/embed/V-3Ywwa0Pgk",
+      thumbnailSrc:
+        "https://i.ytimg.com/vi/V-3Ywwa0Pgk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAvsI6V_SXVoE-RWKiqEOXnYHMWOA",
+    },
+    {
+      title: "Épisode 1 des folies de la nuit de l'info",
+      description:
+        "Dans cette épisode, nous allons parler de notre nuit de l'info",
+      videoSrc: "https://www.youtube.com/embed/V-3Ywwa0Pgk",
+      thumbnailSrc:
+        "https://i.ytimg.com/vi/V-3Ywwa0Pgk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAvsI6V_SXVoE-RWKiqEOXnYHMWOA",
+    },
+  ];
   return (
     <div>
       <Title1>Nos podcasts</Title1>
@@ -17,25 +43,26 @@ function Podcasts() {
             <HeroVideoDialog
               className="dark:hidden block"
               animationStyle="from-center"
-              videoSrc="https://www.youtube.com/embed/V-3Ywwa0Pgk"
-              thumbnailSrc="https://i.ytimg.com/vi/V-3Ywwa0Pgk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAvsI6V_SXVoE-RWKiqEOXnYHMWOA"
-              thumbnailAlt="Hero Video"
+              videoSrc={dataFirst.videoSrc!}
+              thumbnailSrc={dataFirst.thumbnailSrc!}
             />
-            <Title3 className="mt-6">
-              Épisode 1 des folies de la nuit de l'info
-            </Title3>
+            <Title3 className="mt-6">{dataFirst.title}</Title3>
             <P className="text-lg" style={{ marginTop: 5 }}>
-              Dans cette épisode, nous allons parler de notre nuit de l'info
+              {dataFirst.description}
             </P>
           </div>
         </div>
-        <div className="w-1/2 gap-4 flex flex-col">
-          <VideoDialog
-            videoSrc="https://www.youtube.com/embed/V-3Ywwa0Pgk"
-            thumbnailSrc="https://i.ytimg.com/vi/V-3Ywwa0Pgk/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAvsI6V_SXVoE-RWKiqEOXnYHMWOA"
-            thumbnailTitle="Épisode 2 tah la night"
-            thumbnailDescription="lorem impsum mes couilles tu connais le frères"
-          />
+        <div className="flex flex-col w-1/2 gap-4">
+          {data.map((podcast, index) => (
+            <div key={index} className="w-[100%] gap-4 flex flex-col">
+              <VideoDialog
+                videoSrc={podcast.videoSrc!}
+                thumbnailSrc={podcast.thumbnailSrc!}
+                thumbnailTitle={podcast.title!}
+                thumbnailDescription={podcast.description!}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>
