@@ -82,7 +82,7 @@ export function P({
 } & HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={`leading-7 [&:not(:first-child)]:mt-6 ${className}`}
+      className={`leading-7 text-[22px] [&:not(:first-child)]:mt-6 ${className}`}
       {...props}
     >
       {children}
