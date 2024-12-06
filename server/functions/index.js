@@ -1,8 +1,15 @@
 const express = require("express");
 const { onRequest } = require("firebase-functions/v2/https");
 const admin = require("firebase-admin");
+<<<<<<< HEAD
 const analytics = require("firebase-analytics");
 const { validateEmail, fetchData } = require("./function");
+=======
+const cors = require("cors");
+
+//const analytics = require("firebase-analytics");
+//const { validateEmail, fetchData } = require("./function");
+>>>>>>> adrienmaster
 
 const app = express();
 
@@ -29,7 +36,6 @@ admin.initializeApp({
 
 app.post("/send-email", async (req, res) => {
   const { site, firstName, lastName, email, message } = req.body;
-
   if (!site || !firstName || !lastName || !email || !message) {
     return res
       .status(400)
@@ -63,3 +69,52 @@ app.post("/send-email", async (req, res) => {
 
 // Déployez votre application Express en tant que Firebase Cloud Function v2
 exports.apiV2 = onRequest(app);
+
+const { BetaAnalyticsDataClient } = require("@google-analytics/data");
+
+// Initialisez le client Google Analytics avec la clé JSON de votre compte de service
+const analyticsDataClient = new BetaAnalyticsDataClient({
+  keyFilename: "./creds.json", // Remplacez par le chemin de votre clé JSON
+});
+
+// --------------------- DATA CHART ---------------------
+
+app.get("/chart-data", async (req, res) => {
+  try {
+    const propertyId = "469514814"; // Remplacez par l'ID de votre propriété Google Analytics
+
+    // Effectuez une requête pour récupérer les données Google Analytics
+    const [response] = await analyticsDataClient.runReport({
+      property: `properties/${propertyId}`,
+      dateRanges: [
+        {
+          startDate: "30daysAgo",
+          endDate: "today",
+        },
+      ],
+      dimensions: [
+        {
+          name: "month",
+        },
+      ],
+      metrics: [
+        {
+          name: "activeUsers",
+        },
+      ],
+    });
+
+    // Formatez les données pour votre frontend
+    const data = response.rows.map((row) => ({
+      month: row.dimensionValues[0].value,
+      value: parseInt(row.metricValues[0].value, 10),
+    }));
+
+    res.json({ status: "success", data });
+  } catch (error) {
+    console.error("Error fetching chart data:", error);
+    res
+      .status(500)
+      .json({ status: "error", message: "Failed to fetch chart data." });
+  }
+});
