@@ -15,7 +15,7 @@ function Home() {
     },
   ];
   return (
-    <div className=" flex">
+    <div className=" flex flex-col">
       <Podcasts />
       {infos.map((info, index) => (
         <div className=" mt-10">
