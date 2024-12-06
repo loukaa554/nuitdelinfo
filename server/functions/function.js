@@ -51,4 +51,4 @@ const formatDate = (date, format) => {
 
 // ----------------------- EXPORT ----------------------
 
-module.exports = { fetchData, generateUUID, formatDate };
+export { fetchData, generateUUID, formatDate };
