@@ -6,14 +6,14 @@ import { WavyBackgroundDemo } from "./ui/Backgroundwave";
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative h-screen">
       {/* Fond animé */}
       <WavyBackgroundDemo />
 
       {/* Contenu flottant */}
       <FloatingNavDemo />
 
-      <div className="relative flex flex-col md:flex-row gap-0 md:gap-10 justify-center items-center min-h-screen px-0 md:px-20 pt-80 md:pt-0">
+      <div className="relative flex flex-col md:flex-row gap-0 md:gap-10 justify-center items-center min-h-screen px-0 md:px-20 pt-80 md:pt-0 max-h-screen">
         {/* Effet de texte */}
         <div className="text-center md:text-left">
           <TextGenerateEffect

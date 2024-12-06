@@ -4,7 +4,7 @@ import { HeroParallaxDemo } from './ui/Parralax'
 
 const Apropos = () => {
     return (
-        <div className="absolute w-full">
+        <div className="w-full h-screen">
             <div className='pt-20 mx-auto text-center w-full'>
                 <HeroParallaxDemo />
             </div>

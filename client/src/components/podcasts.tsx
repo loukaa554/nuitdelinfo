@@ -30,7 +30,7 @@ function Podcasts() {
     },
   ];
   return (
-    <div>
+    <div className="relative pt-40 mx-20">
       <Title1>Nos podcasts</Title1>
       <P>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores

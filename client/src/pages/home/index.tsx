@@ -17,15 +17,15 @@ function Home() {
     },
   ];
   return (
-    <div className=" flex flex-col">
+    <div className="flex flex-col">
       <Hero />
-      <Apropos />
       <Podcasts />
       {infos.map((info, index) => (
         <div className=" mt-10">
           <InfoComponents data={info} key={index} />
         </div>
       ))}
+      <Apropos />
     </div>
   );
 }

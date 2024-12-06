@@ -10,7 +10,7 @@ interface InfoProps {
 
 function InfoComponents({ data }: InfoProps) {
   return (
-    <div className=" h-[100vh] flex justify-center items-center">
+    <div className=" relative pt-40 mx-20">
       <div className="flex flex-col">
         <Title1 className=" text-left">
           Vous savez combien représentent les océans de la surface de la Terre ?
