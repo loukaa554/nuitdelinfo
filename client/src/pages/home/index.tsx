@@ -1,5 +1,7 @@
 import Podcasts from "@/components/podcasts";
 import InfoComponents from "../../components/info";
+import Hero from "@/components/Hero";
+import Apropos from "@/components/Apropos";
 
 function Home() {
   const infos = [
@@ -16,6 +18,8 @@ function Home() {
   ];
   return (
     <div className=" flex flex-col">
+      <Hero />
+      <Apropos />
       <Podcasts />
       {infos.map((info, index) => (
         <div className=" mt-10">
